@@ -1,13 +1,15 @@
 package model;
 import java.time.LocalDate;
 public abstract class InventoryItem {
-    static private int count = 0;
-    private int id = ++count;
-    private LocalDate dateAdded = LocalDate.now();
-    private LocalDate dateModified = LocalDate.now();
-    private String name;
-    private double price;
-    private Category category;
+
+    static private int  count = 0;
+    private int         id = ++count;
+    private LocalDate   dateAdded = LocalDate.now();
+    private LocalDate   dateModified = LocalDate.now();
+    private String      name;
+    private double      price;
+    private Category    category;
+
     InventoryItem(String _name,double _price,Category _category)
     {
         this.category = _category;
@@ -35,7 +37,6 @@ public abstract class InventoryItem {
     public void setPrice(double _price) {
         this.price = _price;
         updateDateModified();
-        
     }
 
     public LocalDate getDateModified() {
@@ -46,9 +47,21 @@ public abstract class InventoryItem {
         this.dateModified = dateModified;
     }
 
-    public updateDateModified()
+    public void updateDateModified()
     {
-        setDateModified(LocalDate.now);
+        setDateModified(LocalDate.now());
+    }
+    
+    @Override
+    public String toString() {
+        return "InventoryItem{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", category=" + category +
+                ", dateAdded=" + dateAdded +
+                ", dateModified=" + dateModified +
+                '}';
     }
 
 }

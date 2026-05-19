@@ -1,5 +1,12 @@
 package model;
-import java.util.Date;
-class ElectronicProduct extends Product {
-    Date warrantyDate;
+import java.time.LocalDate;
+public class ElectronicProduct extends Product {
+    private    LocalDate warrantyDate;
+    public LocalDate getWarrantyDate() {
+        return warrantyDate;
+    }
+
+    public void setWarrantyDate(LocalDate warrantyDate) {
+        this.warrantyDate = warrantyDate;
+    }
 }

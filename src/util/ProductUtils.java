@@ -1,4 +1,4 @@
-package ProductUtils;
+package util;
 class ProductUtils
 {  
     static void printProduct()

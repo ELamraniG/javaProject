@@ -2,15 +2,17 @@ package model;
 
 class Product extends InventoryItem implements Printable 
 {
-    private double wight;
     private double finalPrice;
-    Product(String name,int quantity,double price)
+    private double wight;
+    Product(String name,int quantity,double price,Category category)
     {
-        super(name,price);
+        super(name,price,category);
     }
 
+    @Override
     public void printSummary()
     {
+        System.out.println(this.toString() + "wight : " + wight); 
         return ;
     }
 
@@ -19,8 +21,14 @@ class Product extends InventoryItem implements Printable
     }
 
     public void setWight(double wight) {
-        updateDateModified()
         this.wight = wight;
     }
 
+    public double getFinalPrice() {
+        return wight;
+    }
+
+    public void SetFinalPrice(double _finalPrice) {
+        this.finalPrice = _finalPrice;
+    }
 }
