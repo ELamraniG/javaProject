@@ -1,34 +1,40 @@
 package model;
 
-class Product extends InventoryItem implements Printable 
+public class Product extends InventoryItem implements Printable 
 {
     private double finalPrice;
-    private double wight;
-    Product(String name,int quantity,double price,Category category,double _wight)
+    private double weight ;
+    private int quantity;
+    Product(String name,int _quantity,double price,Category category,double _weight )
     {
         super(name,price,category);
-        this.wight = _wight;
+        this.weight  = _weight ;
         finalPrice = price;
+        this.quantity = _quantity;
     }
 
 
     @Override
     public void printSummary()
     {
-        System.out.println(this.toString() + "wight : " + wight); 
+        System.out.println(this.toString() + " quantity : " + getQuantity() + " weight  : " + weight );
         return ;
     }
 
-    public double getWight() {
-        return wight;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setWight(double wight) {
-        this.wight = wight;
+    public double getweight () {
+        return weight ;
+    }
+
+    public void setweight (double weight ) {
+        this.weight  = weight ;
     }
 
     public double getFinalPrice() {
-        return wight;
+        return finalPrice;
     }
 
     public void SetFinalPrice(double _finalPrice) {

@@ -1,12 +1,14 @@
 package model;
 import java.time.LocalDate;
-class PerishableProduct extends Product implements Discountable {
+public class PerishableProduct extends Product implements Discountable {
     private LocalDate expirationDate;
 
 
-    public PerishableProduct(String name,int quantity,double price,Category category,double wight)
+    public PerishableProduct(String name,int quantity,double price,Category category,double weight ,LocalDate _expirationDate)
     {
-        super(name,quantity,price,category,wight);
+        super(name,quantity,price,category,weight );
+        this.expirationDate = _expirationDate;
+
     }
     @Override
     public void applyDiscount(double rate)
@@ -16,9 +18,11 @@ class PerishableProduct extends Product implements Discountable {
     public void printSummary()
     {
         System.out.println(this.toString() +
-        "wight : " +
-        getWight() +
-        "expirationDate : " + 
+        " quantity : " +
+        getQuantity() +
+        " weight  : " +
+        getweight () +
+        " expirationDate : " + 
         expirationDate.toString());
      }
 

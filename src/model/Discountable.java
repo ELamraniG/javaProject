@@ -1,6 +1,6 @@
 package model;
-interface Discountable
+public interface Discountable
 {
     void applyDiscount(double rate);
-    
+
 }

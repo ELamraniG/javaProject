@@ -18,17 +18,17 @@ public sealed class ShippingOption  permits StandardShipping, ExpressShipping,Pi
     public LocalDate getMaxShippingTime() {return maxShippingTime;}
     public void setMaxShippingTime(LocalDate maxShippingTime) {this.maxShippingTime = maxShippingTime;    }
 
-    public static double  adjustedPrice(double price,double wight)
+    public static double  adjustedPrice(double price,double weight )
     {
-        if (wight >= 1.0 && wight < 5.0)
+        if (weight  >= 1.0 && weight  < 5.0)
         {
             price += 20;
         }
-        else if (wight >= 5.0 && wight < 10.0)
+        else if (weight  >= 5.0 && weight  < 10.0)
         {
             price += 40;
         }
-        else if (wight >= 10.0)
+        else if (weight  >= 10.0)
         {
             price += 100;
         }
@@ -38,26 +38,26 @@ public sealed class ShippingOption  permits StandardShipping, ExpressShipping,Pi
 
 final class StandardShipping extends ShippingOption
 {    
-    StandardShipping(double price,double wight)
+    StandardShipping(double price,double weight )
     {
 
-        super(adjustedPrice(price,wight),LocalDate.now().plusMonths(1).plusDays(20),true);
+        super(adjustedPrice(price,weight ),LocalDate.now().plusMonths(1).plusDays(20),true);
     }
 }
 
 final class ExpressShipping extends ShippingOption
 {
-    ExpressShipping(double price,double wight)
+    ExpressShipping(double price,double weight )
     {
-        super(adjustedPrice(price,wight),LocalDate.now().plusDays(8),true);
+        super(adjustedPrice(price,weight ),LocalDate.now().plusDays(8),true);
     }
 }
 
 final class PickupOnly extends ShippingOption
 {
 
-    PickupOnly(double price,double wight)
+    PickupOnly(double price,double weight )
     {
-        super(adjustedPrice(price,wight),LocalDate.now().plusDays(15),false);
+        super(adjustedPrice(price,weight ),LocalDate.now().plusDays(15),false);
     }
 }

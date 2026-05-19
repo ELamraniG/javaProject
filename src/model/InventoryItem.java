@@ -2,7 +2,12 @@ package model;
 import java.time.LocalDate;
 public abstract class InventoryItem {
 
-    static private int  count = 0;
+    static private int  count;
+
+    static {
+        count = 0;
+        System.out.println("InventoryItem class loaded, ID counter initialized");
+    }
     private int         id = ++count;
     private LocalDate   dateAdded = LocalDate.now();
     private LocalDate   dateModified = LocalDate.now();
