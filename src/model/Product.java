@@ -4,10 +4,13 @@ class Product extends InventoryItem implements Printable
 {
     private double finalPrice;
     private double wight;
-    Product(String name,int quantity,double price,Category category)
+    Product(String name,int quantity,double price,Category category,double _wight)
     {
         super(name,price,category);
+        this.wight = _wight;
+        finalPrice = price;
     }
+
 
     @Override
     public void printSummary()
