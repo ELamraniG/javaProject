@@ -1,4 +1,5 @@
 package model;
-public interface Printable{
-    public void printSummary ();
+
+public interface Printable {
+    public void printSummary();
 }
