@@ -6,11 +6,6 @@ import exception.*;
 
 class Main
 {
-    public static void findProductByName() throws ProductNotFoundException
-    {
-        //just a random function because as u can see we have no class inventory yet so this function makes no sense to implement now
-        throw new ProductNotFoundException("not found error"); 
-    }
 
     public static void main(String args[])
     {

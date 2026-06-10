@@ -1,4 +1,5 @@
-    package model;
+package Repository;
+import model;
 import exception.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -100,7 +101,7 @@ import java.util.TreeMap;
             }
             return uniqueTags   ;
         }
-        public TreeMap<LocalDate,List<InventoryItem>> getSortedExperationDate()
+        public Map<LocalDate,List<InventoryItem>> getSortedExperationDate()
         {
             TreeMap<LocalDate,List<InventoryItem>> sortedByTime = new TreeMap<>();
             for (Map.Entry<String,InventoryItem> entry : StoreMap.entrySet())
@@ -112,5 +113,6 @@ import java.util.TreeMap;
             }
             return sortedByTime;
         }
+
         
     }
