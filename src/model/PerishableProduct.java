@@ -28,4 +28,16 @@ public class PerishableProduct extends Product implements Discountable {
         " expirationDate : " + 
         expirationDate.toString());
     }
+
+    /**
+     * @return LocalDate return the expirationDate
+     */
+    public LocalDate getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(LocalDate expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
 }

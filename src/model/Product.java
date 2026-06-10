@@ -1,12 +1,15 @@
 package model;
 
 import exception.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Product extends InventoryItem implements Printable 
 {
     private double finalPrice;
     protected double weight;
     private int quantity;
+    private List<String> tags = new ArrayList<>();
 
     Product(String name, int _quantity, double price, Category category, double _weight)
     {
@@ -49,5 +52,18 @@ public class Product extends InventoryItem implements Printable
         if (quantity < 0)
             throw new InvalidQuantityException("quantity cannot be negative");
         this.quantity = quantity;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void addTag(String tag) {
+        
+        tags.add(tag);
+    }
+    public void addTags(List<String> tag) {
+        
+        tags.addAll(tags);
     }
 }

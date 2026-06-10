@@ -9,7 +9,6 @@ public enum Category
         {
             return "this is food the tax rate is 2.5 because it is a nessicity for people \n";
         }
-
     },
     ELECTRONICS("ELECTRONICS", 20)
     {
@@ -32,7 +31,6 @@ public enum Category
 
     private String displayName;
     private double taxRate;
-
     Category(String _displayName, double _taxRate)
     {
         this.displayName = _displayName;
