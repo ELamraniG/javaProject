@@ -1,5 +1,5 @@
 package Repository;
-import model;
+import model.*;
 import exception.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ import java.util.TreeMap;
         }
         private boolean validateProduct(InventoryItem item)
         {
-            if (item == null || item.getName().isEmpty() || StoreMap.containsKey(item.getName()) )
+            if (item == null || item.getName == null ||item.getName().isEmpty() || StoreMap.containsKey(item.getName()) )
                 return false;
             return true;
         }
@@ -84,13 +84,6 @@ import java.util.TreeMap;
             return prod;
         }
 
-        public List<InventoryItem> sortedProductsByPrice()
-        {
-            final List<InventoryItem> StoreArray = new ArrayList<InventoryItem>(StoreMap.values());
-            StoreArray.sort(Comparator.comparing(InventoryItem::getPrice));
-            return StoreArray;
-        }
-
         public HashSet<String> getUniqueTags()
         {
             HashSet<String> uniqueTags = new HashSet<>();
@@ -114,5 +107,19 @@ import java.util.TreeMap;
             return sortedByTime;
         }
 
+        public List<InventoryItem> sortedProductsByPrice()
+        {
+            final List<InventoryItem> items = new ArrayList<>(StoreMap.values());
+            items.sort(new Comparator<InventoryItem>()
+            {
+            @Override
+                public int compare(InventoryItem a,InventoryItem b)
+                {
+                    return Double.compare(a.getPrice(),b.getPrice());
+                }
+            }
+            );
+            return items;
+        }
         
     }

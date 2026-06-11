@@ -17,6 +17,7 @@ public class ElectronicProduct extends Product {
     @Override
     public void printSummary()
     {
-        System.out.println(this.toString() + " quantity : " + getQuantity() + " weight : " + getweight() + " warranty experation date : " + warrantyDate.toString());
+        super.printSummary();
+        System.out.println( " warranty experation date : " + warrantyDate.toString());
     }
 }

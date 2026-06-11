@@ -4,14 +4,19 @@ import exception.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Product extends InventoryItem implements Printable 
+public class Product extends InventoryItem implements Printable, Comparable<Product>
 {
+    @Override 
+    public int compareTo(Product other)
+    {
+        return Double.compare(this.getId(),other.getId());
+    }
     private double finalPrice;
     protected double weight;
     private int quantity;
     private List<String> tags = new ArrayList<>();
 
-    Product(String name, int _quantity, double price, Category category, double _weight)
+    public Product(String name, int _quantity, double price, Category category, double _weight)
     {
         super(name, price, category);
         this.weight = _weight;
@@ -62,8 +67,9 @@ public class Product extends InventoryItem implements Printable
         
         tags.add(tag);
     }
-    public void addTags(List<String> tag) {
+    public void addTags(List<String> _tags) {
         
-        tags.addAll(tags);
+        tags.addAll(_tags);
     }
+
 }

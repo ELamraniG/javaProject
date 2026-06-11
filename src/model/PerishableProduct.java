@@ -14,17 +14,14 @@ public class PerishableProduct extends Product implements Discountable {
     @Override
     public void applyDiscount(double rate)
     {
-        SetFinalPrice(getPrice() * rate);
+        SetFinalPrice(getPrice() - (getPrice() * rate / 100 ));
     }
 
     @Override
     public void printSummary()
     {
-        System.out.println(this.toString() +
-        " quantity : " +
-        getQuantity() +
-        " weight : " +
-        getweight() +
+        super.printSummary();
+        System.out.println(
         " expirationDate : " + 
         expirationDate.toString());
     }
