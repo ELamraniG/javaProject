@@ -67,11 +67,13 @@ import java.util.TreeMap;
         public boolean addProduct(InventoryItem product)
         {
             if (product instanceof Product p)
+            {
                 if (validateProduct(p))
                 {
                     StoreMap.put(product.getName(),product);
-                return true;
+                    return true;
                 }
+            }
             System.err.println("Product hasn't been added, it must not be  null and not already existing and must have a name");
             return false;
         }

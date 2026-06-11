@@ -54,13 +54,5 @@ class Main
             System.out.println(e.getMessage());
         }
 
-        try (FileReader reader = new FileReader("file.txt"))
-        {
-            int data = reader.read();
-            //just a dummy reader stub
-        }
-        catch (IOException e)
-        {
-        }
     }
 }
