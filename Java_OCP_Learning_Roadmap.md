@@ -394,7 +394,7 @@ smartinventory/
 
 ### Features to Implement
 
-- Replace anonymous `Comparator` classes with lambda expressions
+- Replace anonymous `Comparator` classes with lambda expressions 
 - Add a method `filterProducts(List<Product> products, Predicate<Product> filter)` and call it with a lambda
 - Add a `applyToAll(List<Product> items, Consumer<Product>)` method for batch updates
 - Add a `transformNames(List<Product> items, Function<Product, String>)` method

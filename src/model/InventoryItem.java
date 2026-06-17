@@ -79,4 +79,7 @@ public abstract class InventoryItem {
     public Category getCategory() {
         return category;
     }
+     public void setCategory(Category cat) {
+        this.category = cat;
+    }
 }

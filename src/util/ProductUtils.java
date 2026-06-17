@@ -1,7 +1,7 @@
 package util;
 import model.*;
 import java.util.List;
-class ProductUtils
+public class ProductUtils
 {  
     static void printProduct()
     {
@@ -18,16 +18,18 @@ class ProductUtils
         return false;
     }
 
-    <T extends InventoryItem> void printAll(List<T> items)
+    public static <T extends InventoryItem> void printAll(List<T> items)
     {  
         for (T item : items)
-            item.printSummary();
+            if (item instanceof Product p)
+                p.printSummary();
     }
 
-   void printAll2(List<? extends InventoryItem> items)
+   public static void printAll2(List<? extends InventoryItem> items)
     {
         for (InventoryItem item : items)
-            item.printSummary();
+            if (item instanceof Product p)
+            p.printSummary();
     }
-    
+
 }

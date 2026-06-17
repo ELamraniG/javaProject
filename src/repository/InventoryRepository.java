@@ -1,4 +1,4 @@
-package Repository;
+package repository;
 import model.*;
 import exception.*;
 import java.time.LocalDate;
@@ -11,7 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-    class InventoryRepository  
+    public class InventoryRepository  
     {
              final private Map<String,InventoryItem> StoreMap = new HashMap<String,InventoryItem>();
 
@@ -38,7 +38,7 @@ import java.util.TreeMap;
         }
         private boolean validateProduct(InventoryItem item)
         {
-            if (item == null || item.getName == null ||item.getName().isEmpty() || StoreMap.containsKey(item.getName()) )
+            if (item == null || item.getName() == null ||item.getName().isEmpty() || StoreMap.containsKey(item.getName()) )
                 return false;
             return true;
         }
@@ -112,16 +112,24 @@ import java.util.TreeMap;
         public List<InventoryItem> sortedProductsByPrice()
         {
             final List<InventoryItem> items = new ArrayList<>(StoreMap.values());
-            items.sort(new Comparator<InventoryItem>()
-            {
-            @Override
-                public int compare(InventoryItem a,InventoryItem b)
-                {
-                    return Double.compare(a.getPrice(),b.getPrice());
-                }
-            }
-            );
+            // the anonymous class way // items.sort(new Comparator<InventoryItem>()
+            // {
+            // @Override
+            //     public int compare(InventoryItem a,InventoryItem b)
+            //     {
+            //         return Double.compare(a.getPrice(),b.getPrice());
+            //     }
+            // }
+            // );
+            items.sort((a,b)-> Double.compare(a.getPrice(),b.getPrice()));
             return items;
         }
-        
+        // removed the list cause i am using a map
+ 
+        public List <InventoryItem> toList()
+        {
+            
+            return  new ArrayList<InventoryItem>(StoreMap.values());
+        }
+   
     }

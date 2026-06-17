@@ -27,7 +27,7 @@ public class Product extends InventoryItem implements Printable, Comparable<Prod
     @Override
     public void printSummary()
     {
-        System.out.println(this.toString() + " quantity : " + getQuantity() + " weight : " + weight);
+        System.out.print(this.toString() + " quantity : " + getQuantity() + " weight : " + weight);
         return;
     }
 
